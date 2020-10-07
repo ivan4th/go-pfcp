@@ -398,9 +398,9 @@ func (i *IE) MarshalTo(b []byte) error {
 // MarshalLen returns field length in integer.
 func (i *IE) MarshalLen() int {
 	l := 4
-	if i.IsVendorSpecific() {
-		l += 2
-	}
+	// if i.IsVendorSpecific() {
+	// 	l += 2
+	// }
 
 	if i.IsGrouped() {
 		for _, ie := range i.ChildIEs {
@@ -416,9 +416,9 @@ func (i *IE) MarshalLen() int {
 func (i *IE) SetLength() {
 	l := 0
 
-	if i.IsVendorSpecific() {
-		l += 2
-	}
+	// if i.IsVendorSpecific() {
+	// 	l += 2
+	// }
 
 	i.Length = uint16(l + len(i.Payload))
 }
